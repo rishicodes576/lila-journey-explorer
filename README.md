@@ -4,7 +4,7 @@ A web tool for the Level Design team to *see* how players move, fight, loot, and
 LILA BLACK's three maps — built from 5 days of production telemetry (89,104 events, 796 matches,
 339 players).
 
-**▶ Live demo:** _added after deploy_
+**▶ Live demo: https://lila-journey-tool.vercel.app**
 
 ![overview](docs/overview.png)
 
