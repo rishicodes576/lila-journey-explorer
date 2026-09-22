@@ -313,20 +313,25 @@ export default function MapCanvas() {
     )
   }
 
-  // event markers (overview or match) — dark halo + tinted icon
+  // event markers (overview or match) — tinted icons.
+  // Match view is sparse → add a dark halo for contrast. Overview holds ~16k
+  // events, so a per-marker halo would blot out the map: draw smaller,
+  // slightly translucent icons that read as an event scatter instead.
   const markerData = matchView ? (layers.events ? matchView.events : []) : overview && layers.events ? overview.events : []
   if (markerData.length) {
-    deckLayers.push(
-      new ScatterplotLayer({
-        id: 'marker-halo',
-        data: markerData,
-        getPosition: (d: any) => d.position,
-        getFillColor: [13, 13, 13, 200],
-        getRadius: 9,
-        radiusUnits: 'pixels',
-        radiusMinPixels: 7,
-      }),
-    )
+    if (matchView) {
+      deckLayers.push(
+        new ScatterplotLayer({
+          id: 'marker-halo',
+          data: markerData,
+          getPosition: (d: any) => d.position,
+          getFillColor: [13, 13, 13, 200],
+          getRadius: 9,
+          radiusUnits: 'pixels',
+          radiusMinPixels: 7,
+        }),
+      )
+    }
     deckLayers.push(
       new IconLayer({
         id: 'marker-icons',
@@ -336,10 +341,10 @@ export default function MapCanvas() {
         iconMapping: icons.mapping as any,
         getIcon: (d: any) => EVENT_STYLE[d.name as keyof typeof EVENT_STYLE].icon,
         getPosition: (d: any) => d.position,
-        getColor: (d: any) => [...d.color, 255] as any,
-        getSize: 20,
+        getColor: (d: any) => [...d.color, matchView ? 255 : 210] as any,
+        getSize: matchView ? 20 : 13,
         sizeUnits: 'pixels',
-        sizeMinPixels: 14,
+        sizeMinPixels: matchView ? 14 : 9,
       }),
     )
   }
