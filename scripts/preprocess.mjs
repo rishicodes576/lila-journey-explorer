@@ -117,8 +117,10 @@ async function loadAll() {
           const type = String(r.event)
           evs.push({ x: r.x, z: r.z, y: r.y, t, type })
         }
-        evs.sort((a, b) => a.t - b.t)
-        match.players.set(uid, { id: uid, bot, evs })
+        // A (match, player) can span multiple files — merge, don't overwrite.
+        const existing = match.players.get(uid)
+        if (existing) existing.evs.push(...evs)
+        else match.players.set(uid, { id: uid, bot, evs })
       }
     }
     process.stdout.write(`ok\n`)
@@ -201,6 +203,7 @@ async function build() {
     const matchPlayers = []
 
     for (const p of match.players.values()) {
+      p.evs.sort((a, b) => a.t - b.t) // sort once here (evs may be merged from multiple files)
       p.bot ? nBots++ : nHumans++
       // register player
       if (!players.has(p.id)) players.set(p.id, { id: p.id, isBot: p.bot, matches: new Set() })

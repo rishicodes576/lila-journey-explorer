@@ -18,9 +18,9 @@ cell grid (1,024 cells) over each map's logical space.
 red *"Death (by bot)"* triangles and green *"Kill (bot)"* triangles, but the *"Kill/Death (by player)"*
 shapes almost never appear.
 
-**Evidence:** of **741 human deaths**, **699 (94.3%) were caused by bots**, **39 (5.3%) by the storm**,
-and **just 3 (0.4%) by other players.** Offensively, humans scored **2,410 bot-kills vs 3 player-kills**
-(a 803:1 ratio). This holds across all 5 days and all 3 maps.
+**Evidence:** of **742 human deaths**, **700 (94.3%) were caused by bots**, **39 (5.3%) by the storm**,
+and **just 3 (0.4%) by other players.** Offensively, humans scored **2,415 bot-kills vs 3 player-kills**
+(an 805:1 ratio). This holds across all 5 days and all 3 maps.
 
 **Likely cause:** humans rarely share an instance in this sample (see the 93% single-player-match note),
 so player-vs-player contact is almost mechanically impossible here.
@@ -41,11 +41,12 @@ combat intentionally, rather than hoping players collide.
 event — and they pile up in tight clusters. Switch to the **Kills** heatmap and the hottest kill cells sit
 *on top of* the busiest loot cells.
 
-**Evidence:** **Loot = 12,866 events**, more than **4× all combat events combined** (~3,154). Loot is highly
+**Evidence:** **Loot = 12,885 events**, **4.1× all combat events combined** (~3,160). Loot is highly
 concentrated: on Ambrose Valley the single hottest cell (world ≈ `x -47, z -346`) logged **583 pickups —
-~3× the 12th-ranked hotspot (197)**. Kill and loot hotspots **co-locate**: Ambrose cell ≈ `x 94, z -65`
-ranks in the **top 3 for both** kills and loot; `x 38, z 244` appears in the top ranks of **kills, deaths,
-and loot** simultaneously.
+~3× the 12th-ranked hotspot (199)**. Combat clusters tightly too: the hottest cell `x 10, z -9` tops
+**both** the kill (65) and death (42) rankings, and **2 of the top-3 kill cells double as heavy loot sites** —
+`x 94, z -262` logged **60 kills on top of 251 loot pickups**, `x 94, z -65` **57 kills on 268**. Players
+fight where they loot.
 
 **Actionable / metrics affected:** these are your **"hot drop" POIs** — loot draws players, players die where
 they loot. Track **loot-per-POI, kills-per-POI, and a contested-POI ratio.** The 583-pickup site is a magnet

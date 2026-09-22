@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T13:35:40.889Z",
+  "generatedAt": "2026-09-22T16:35:39.504Z",
   "overview": {
     "totalFiles": 1243,
     "totalRows": 89104,
@@ -15,11 +15,11 @@
       "2026-02-14"
     ],
     "eventCounts": {
-      "Position": 51284,
-      "BotKill": 2410,
-      "Loot": 12866,
+      "Position": 51347,
+      "BotKill": 2415,
+      "Loot": 12885,
       "KilledByStorm": 39,
-      "BotKilled": 699,
+      "BotKilled": 700,
       "Kill": 3,
       "Killed": 3,
       "BotPosition": 21712
@@ -57,9 +57,9 @@
     }
   },
   "deathBreakdown": {
-    "total": 741,
+    "total": 742,
     "byPlayers": 3,
-    "byBots": 699,
+    "byBots": 700,
     "byStorm": 39,
     "pctPlayers": 0.4,
     "pctBots": 94.3,
@@ -754,7 +754,7 @@
           "cy": 12,
           "x": -299.7,
           "z": 75.4,
-          "count": 197
+          "count": 199
         }
       ]
     },
